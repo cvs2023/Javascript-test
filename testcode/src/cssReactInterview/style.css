@@ -1,0 +1,21 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.circle {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.square {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+}
+.box-flex {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 3px;
+}

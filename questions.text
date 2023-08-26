@@ -1,0 +1,249 @@
+Hoisting: In JavaScript, variables and functions can be declared after they are used. 
+This is because JavaScript "hoists" (or moves) variable and function declarations to
+ the top of their respective scopes. However, only the declarations are hoisted, not
+  the assignments. This means that variables declared with var or function can be used
+   before they are actually declared.
+
+-----------------------------------
+Lexical means - inoder or heirarchy
+inner() we can say is lexically inside outer fun()
+Means where the code is physically present as inner is present inside outer
+
+Lexical environment - whenever a execution context is created on invoking a function a 
+lexical environment also created.
+Its local memory along with the reference of lexical environment of its parent
+having reference to its parent scope
+
+GLobal will point to null as it has no parent
+this is scope chain - finding var in outer scopes 
+-----------------------------------
+
+Que - What is scope in js
+
+In JavaScript, scope refers to the accessibility of variables and functions in your code. Every variable and function in JavaScript has a scope, which determines where it can be accessed from.
+JavaScript has two types of scope: global scope and local scope.
+
+Global Scope: Variables and functions that are declared outside of any function or block have global scope. This means they can be accessed from anywhere in your code, including inside functions.
+Local Scope: Variables and functions that are declared inside a function or block have local scope. This means they can only be accessed from within that function or block.
+JavaScript uses lexical scoping, which means that the scope of a variable or function is determined by its position in the code. Variables and functions can access variables and functions in their outer scopes, but not the other way around. This is known as "scope chaining".
+It's important to note that in JavaScript, variables declared with the var keyword have function scope, while variables declared with let or const have block scope. This means that var variables can be accessed from within the function they were declared in, while let and const variables can only be accessed from within the block they were declared in.
+Understanding scope is crucial for writing maintainable and bug-free JavaScript code, as it helps to avoid naming conflicts and unintended variable reassignments.
+
+
+
+
+
+-----------------------------------
+
+
+Scope and Closure: JavaScript uses function scope, which means that variables declared inside a function are only accessible inside that function. However, functions can access variables declared in their outer scopes, creating what's called a closure.
+-----------------------------------
+what is destructuring in js
+Destructuring is a feature in JavaScript that allows you to extract values from arrays or objects and assign them to variables in a concise and easy-to-read way. It's a shorthand way of assigning values to variables that saves you from writing repetitive code.
+
+There are two types of destructuring in JavaScript:
+
+Array Destructuring: Array destructuring allows you to extract values from an array and assign them to variables. Here's an example:
+arduino
+Copy code
+const myArray = [1, 2, 3];
+const [a, b, c] = myArray;
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+In the example above, we're extracting the values from myArray and assigning them to variables a, b, and c. This can be useful for working with APIs that return data in arrays.
+
+Object Destructuring: Object destructuring allows you to extract values from an object and assign them to variables. Here's an example:
+arduino
+Copy code
+const myObject = {name: 'John', age: 30};
+const {name, age} = myObject;
+console.log(name); // Output: John
+console.log(age); // Output: 30
+In the example above, we're extracting the values from myObject and assigning them to variables name and age. This can be useful for working with APIs that return data in objects.
+
+Destructuring can also be used with nested objects and arrays, and can be combined with default values and rest parameters. Destructuring is a powerful feature that can make your code more readable and maintainable.
+
+see below rest spread destructuring
+-----------------------------------
+
+QUE- What is spread and rest in js 
+Spread and rest are two related features in JavaScript that allow you to work with arrays and objects in a more concise and flexible way.
+
+Spread Syntax: Spread syntax allows you to "spread" the contents of an array or object into another array or object. This can be useful for creating new arrays or objects, or for combining existing ones. Here's an example:
+arduino
+Copy code
+const myArray = [1, 2, 3];
+const newArray = [...myArray, 4, 5];
+console.log(newArray); // Output: [1, 2, 3, 4, 5]
+In the example above, we're using spread syntax to create a new array newArray that contains the values of myArray plus the values 4 and 5.
+
+Spread syntax can also be used to create copies of arrays and objects, as shown in the following examples:
+
+const myArray = [1, 2, 3];
+const copyArray = [...myArray];
+console.log(copyArray); // Output: [1, 2, 3]
+
+const myObject = {name: 'John', age: 30};
+const copyObject = {...myObject};
+console.log(copyObject); // Output: {name: 'John', age: 30}
+---
+Rest Syntax: Rest syntax allows you to represent an indefinite number of arguments as an array. This can be useful for functions that accept a variable number of arguments. Here's an example:
+
+function myFunction(...args) {
+  console.log(args);
+}
+
+myFunction(1, 2, 3); // Output: [1, 2, 3]
+In the example above, we're using rest syntax to accept an indefinite number of arguments and store them in an array args. This allows us to work with the arguments as an array, even if we don't know how many there will be.
+
+Rest syntax can also be used to extract specific values from an array or object, as shown in the following examples:
+
+@C- destructuring
+const myArray = [1, 2, 3, 4, 5];
+const [first, second, ...rest] = myArray;
+console.log(first); // Output: 1
+console.log(second); // Output: 2
+console.log(rest); // Output: [3, 4, 5]
+
+const myObject = {name: 'John', age: 30, gender: 'male'};
+const {name, ...rest} = myObject;
+console.log(name); // Output: John
+console.log(rest); // Output: {age: 30, gender: 'male'}
+In the examples above, we're using rest syntax to extract specific values from an array or object and store the remaining values in a new array or object. This can be useful for working with APIs that return data in arrays or objects.
+-----------------------------------
+QUE- What is event loop in js
+
+The event loop is a fundamental concept in JavaScript that is responsible for managing the execution of code in a single-threaded environment.
+
+JavaScript is a single-threaded language, which means that it can only execute one piece of code at a time. However, it needs to be able to handle asynchronous operations like user input, network requests, and timers, without blocking the main thread.
+
+The event loop is a mechanism that allows JavaScript to achieve this. It works by continuously monitoring a queue of tasks that need to be executed, and executing each task in turn, one at a time. When a task is executed, any synchronous code it contains is executed immediately, but any asynchronous operations like network requests or timers are scheduled to be executed in the future.
+
+Here's an example of how the event loop works:
+
+JavaScript code is executed synchronously, one line at a time, until an asynchronous operation is encountered.
+The asynchronous operation is scheduled to be executed in the future, and the code continues executing synchronously.
+When the asynchronous operation completes, it is placed in the task queue.
+The event loop continuously monitors the task queue for new tasks to execute.
+When a task is found, the event loop executes it, allowing any synchronous code to execute immediately.
+Any asynchronous operations in the task are scheduled to be executed in the future, and the event loop continues monitoring the task queue.
+This process allows JavaScript to handle asynchronous operations without blocking the main thread, and without the need for complex multi-threaded code. It's important to note that the event loop is a core concept in JavaScript, and understanding how it works is crucial for writing high-performance, scalable applications.
+
+
+
+
+
+
+
+
+-----------------------------------
+What is concurrency in js teach me
+Concurrency in JavaScript refers to the ability of JavaScript to perform multiple tasks simultaneously. However, it is important to note that JavaScript is a single-threaded language, meaning that it can only execute one task at a time.
+
+So how can JavaScript achieve concurrency if it can only execute one task at a time? The answer lies in the event loop and asynchronous programming.
+
+JavaScript achieves concurrency by allowing tasks to be executed asynchronously. When an asynchronous task is started, JavaScript does not block and wait for the task to complete before moving on to the next line of code. Instead, it allows other tasks to be executed while waiting for the asynchronous task to complete.
+
+This means that while an asynchronous task is running, the JavaScript interpreter can continue to execute other tasks, which gives the illusion of concurrency. For example, when making an HTTP request, JavaScript does not block and wait for the response. Instead, it continues executing other code while waiting for the response to be returned.
+
+JavaScript also provides built-in mechanisms for managing concurrency, such as promises, async/await, and the setTimeout and setInterval functions. Promises allow for more readable and manageable asynchronous code by providing a way to handle success and error conditions of asynchronous tasks. Async/await is a syntax feature that allows for cleaner and more concise code for managing asynchronous operations. The setTimeout and setInterval functions allow for the scheduling of code to run at specific times, which can be useful for managing concurrency in time-sensitive applications.
+
+In summary, JavaScript achieves concurrency by allowing asynchronous tasks to be executed while the interpreter continues to execute other code. This allows for more efficient and performant code and is managed through mechanisms like promises, async/await, and scheduling functions.
+
+-----------------------------------
+
+QUE - WHAT IS single-threaded language
+Yes, JavaScript is a single-threaded language. This means that it can only execute one task at a time.
+
+In a multi-threaded programming environment, multiple threads of execution can run simultaneously, allowing multiple tasks to be executed at the same time. However, in a single-threaded programming environment, only one thread of execution is available, meaning that only one task can be executed at a time.
+
+JavaScript is designed to be single-threaded to simplify the programming model and avoid race conditions and other issues that can occur in multi-threaded environments. The single-threaded model means that JavaScript code can be executed predictably, in the order that it is written, without the need for complex synchronization mechanisms.
+
+While JavaScript is single-threaded, it does support asynchronous programming, which allows it to perform multiple tasks simultaneously without blocking the main thread. 
+This is achieved through mechanisms like the ----------@event loop------- and @asynchronous APIs, 
+which allow tasks to be executed in the background while the main thread continues to execute other code.
+
+While the single-threaded nature of JavaScript has its limitations, it also makes the language easier to learn and use, and can lead to more predictable and maintainable code.
+-----------------------------------
+
+
+Asynchronous JavaScript: JavaScript is single-threaded, meaning that it can only execute one piece of code at a time. Asynchronous JavaScript allows you to perform non-blocking operations, such as making an HTTP request, without freezing the user interface.
+-----------------------------------
+-----------------------------------
+
+Event Loop: The event loop is the mechanism that JavaScript uses to handle asynchronous code. It continuously checks the message queue for new tasks to execute.
+
+
+In JavaScript, the event loop is a mechanism for handling asynchronous tasks in a non-blocking way. It is an essential part of the JavaScript runtime environment, and it plays a crucial role in how JavaScript code executes.
+
+At a high level, the event loop is a loop that continuously waits for events to occur and then handles those events as they come in. These events could be user input, network requests, or timers, for example. When an event occurs, it is added to a queue, and the event loop takes items from this queue and processes them one at a time.
+
+Here's a simplified example of how the event loop works:
+  The JavaScript runtime environment starts up, and the event loop begins to run.
+  Asynchronous tasks are queued up, such as network requests or timers.
+  The event loop waits for the first task in the queue to complete.
+  When the first task completes, the event loop processes the result and triggers any associated callbacks.
+  The event loop then moves on to the next task in the queue and repeats the process.
+  One of the most critical things to understand about the event loop is that it allows JavaScript to execute non-blocking code. In other words, 
+  -----while the event loop is waiting for a task to complete, other parts of the code can continue to execute. This means that JavaScript can handle multiple tasks simultaneously without blocking the execution of other code.-----
+  
+In summary, the event loop is a fundamental concept in JavaScript that allows for the execution of asynchronous code in a non-blocking way. Understanding how it works is essential for writing efficient and scalable JavaScript applications.
+-----------------------------------
+
+Callbacks: Callbacks are functions that are passed as arguments to other functions and are called when an asynchronous operation completes.
+-----------------------------------
+
+Promises and Promise Chaining: Promises are objects that represent the eventual completion (or failure) of an asynchronous operation. Promise chaining allows you to execute a sequence of asynchronous operations in a specific order.
+-----------------------------------
+
+Async/Await: Async/await is a more recent addition to JavaScript and provides a cleaner syntax for working with asynchronous operations. Async functions return a Promise and can contain one or more await expressions that pause the execution of the function until the awaited Promise resolves.
+-----------------------------------
+
+
+Prototypal Inheritance: JavaScript uses prototypal inheritance, which means that objects inherit properties and methods from their prototypes. Prototypal inheritance is different from classical inheritance used in languages like Java and C++.
+-----------------------------------
+
+Classes and Constructors: JavaScript has a class syntax that is similar to other object-oriented languages. However, under the hood, classes are just special functions and inheritance is still based on prototypes.
+-----------------------------------
+
+
+-----------------------------------
+
+Arrow Functions: Arrow functions provide a more concise syntax for defining functions. They also have some differences in how this is handled compared to regular functions.
+-----------------------------------
+
+Template Literals: Template literals provide a way to interpolate variables and expressions into strings using backticks instead of quotes.
+-----------------------------------
+
+Spread and Rest Operators: The spread operator (...) allows you to spread the elements of an array or object into another array or object. The rest operator (...) allows you to collect multiple arguments into an array.
+-----------------------------------
+
+Modules and Imports/Exports: ES6 introduced a module system for JavaScript that allows you to split your code into smaller files and export and import functionality between them.
+-----------------------------------
+
+DOM Manipulation: The Document Object Model (DOM) is the interface between JavaScript and HTML/CSS. DOM manipulation allows you to modify the content and structure of a web page.
+-----------------------------------
+
+HTTP Requests: Making HTTP requests is a common task in web development. JavaScript provides several ways to make HTTP requests, including the XMLHttpRequest object, the fetch function, and third-party libraries like Axios.
+
+Error Handling: JavaScript provides a way to handle errors using try/catch blocks or Promise catch methods.
+-----------------------------------
+
+Type Coercion: JavaScript has some quirks when it comes to type coercion, which is the process of converting a value from one type to another. Understanding how type coercion works can help you avoid bugs in your code.
+-----------------------------------
+
+
+
+
+
+Call, Apply, and Bind: These are three methods that can be used to change the value of the this keyword in a function. call and apply are similar methods that allow you to call a function with a specific this value and arguments. bind creates a new function with a specific this value that can be called later.
+-----------------------------------
+
+Strict Mode: Strict mode is a feature of JavaScript that allows you to opt-in to a stricter set of rules for your code. It helps to catch common errors and improve the performance of your code.
+-----------------------------------
+
+While this overview provides a good starting point for learning about these topics, it's important to note that each of these topics can be quite complex and may require additional research and practice to fully understand. Additionally, some interviewers may expect more in-depth knowledge of specific topics, depending on the role and level of experience required.
+-----------------------------------
+
+

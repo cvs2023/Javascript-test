@@ -1,0 +1,47 @@
+js/browser
+
+web apis   --> dom, setTimeout, fetch, xhr,local
+concurrent programming <--> asychronous <--> multithreaded
+x = 1
+y = 1
+z = 1
+a = 3
+b = 4
+
+setTimeout(f, time_interval)
+fetch
+addEventListener("click")
+
+webapis
+event loop
+callback
+promises
+async/await
+
+const x = 1;
+console.log(x); --> 1
+function hello(){
+    console.log("hello")
+}
+
+const x = fetch("/twitter/api").then((data) => console.log(data))
+
+function y(){
+    return "y"
+}
+
+consol
+browser --> timer(hello, 1000) --> [hello]<- callback queue /
+ microtask queue
+ 2000
+
+
+xhr --> xmlhttprequest
+
+callback hell -> Promises
+
+Promises --> 2 pronged
+{
+    value: undefined;
+    onFulfillment: []
+}                                           

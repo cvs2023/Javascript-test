@@ -1,0 +1,1 @@
+In place of null, if you want to use a replacer function to customize the JSON stringification process, you can do so. The replacer function can be used to filter or modify the values being stringified. Here's how you can modify the code to use a replacer function:

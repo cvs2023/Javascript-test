@@ -1,0 +1,39 @@
+What is block
+    - wrap mul statements
+    - combining multiple js statements into group
+    {
+        //compound statement
+    }
+
+
+    if( true ) --> err
+    if( true ) true; -->works
+
+    here block comes into picture where we need to write more code/ mul statements
+    if( true ) {
+        //
+        //
+        //
+    }
+What is Block Scope
+whta is the scope of this block
+    - what all var and fun we can access inside this block
+
+    
+    var a= 10;
+    {
+        a = 20;
+        clg-a 
+    }
+
+    var b= 10;
+    function(){
+        var b = 200;
+        clg-b
+    }
+    
+    var b= 10;
+    function(){
+        clg-b
+        var b = 200;
+    }

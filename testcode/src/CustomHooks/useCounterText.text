@@ -1,0 +1,15 @@
+setValue( p - 1)
+
+Doesn't account for potential concurrency issues if the value is being modified by other parts of the code or in a multi-threaded environment. */
+
+----When you click the "Decrement Directly" button repeatedly in quick succession, you might see unexpected behavior due to potential concurrency issues. The counter might not update as expected.
+
+
+--------------------------------------
+setValue((p) => p - 1)
+
+Helps avoid potential concurrency issues because you're working with the previous value in a functional manner.
+
+If you want to ensure that you're working with the most up-to-date value and need to perform more complex calculations, the functional update approach (setValue((p) => p - 1)) might be more appropriate.
+
+When you click the "Decrement Functionally" button repeatedly, you won't encounter the concurrency issue because the functional update ensures that you're working with the latest value of the state.
